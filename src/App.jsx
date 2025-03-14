@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
 import NavBarApp from "./components/NavBarApp";
 import { decodificarJeringozo, codificarJeringozo } from "./helpers/traducir";
+import "./css/traductor.css";
 
 function App() {
+  let initialCount = 5000;
   const [textEspañol, setTextEspañol] = useState("");
   const [textJeringozo, setTextJeringozo] = useState("");
   const [idiomaJeringozo, setIdiomaJeringozo] = useState(true);
+  const [count, setCount] = useState(initialCount);
 
   useEffect(() => {
-    if (idiomaJeringozo) {
-      setTextJeringozo(codificarJeringozo(textEspañol));
-    } else {
-      setTextJeringozo(decodificarJeringozo(textEspañol));
-    }
+    setCount(initialCount - textEspañol.length);
+    idiomaJeringozo
+      ? setTextJeringozo(codificarJeringozo(textEspañol))
+      : setTextJeringozo(decodificarJeringozo(textEspañol));
+
+    // if (idiomaJeringozo) {
+    //   setTextJeringozo(codificarJeringozo(textEspañol));
+    // } else {
+    //   setTextJeringozo(decodificarJeringozo(textEspañol));
+    // }
   }, [textEspañol]);
 
   useEffect(() => {
@@ -37,11 +45,15 @@ function App() {
         <div className="row py-5">
           <div className="col fs-3 d-flex justify-content-around align-items-center">
             <span>{idiomaJeringozo ? "Español" : "Jeringozo"}</span>
+          </div>
+          <div className="col fs-3 d-flex justify-content-around align-items-center">
             <i
               onClick={cambioIdioma}
               className="fa fa-exchange"
               aria-hidden="true"
             ></i>
+          </div>
+          <div className="col fs-3 d-flex justify-content-around align-items-center">
             <span>{idiomaJeringozo ? "Jeringozo" : "Español"}</span>
           </div>
         </div>
@@ -50,19 +62,25 @@ function App() {
             <textarea
               className="form-control"
               rows="5"
-              name=""
-              id=""
+              maxLength={5000}
               value={textEspañol}
               onChange={timeTraduction}
+
               // onKeyUp={timeTraduction}
             ></textarea>
+            <div className="d-flex justify-content-end pe-2">
+              <small className={count <= 10 ? " text-danger" : "text-muted"}>
+                {count}
+              </small>
+            </div>
           </div>
           <div className="col-12 col-md-6 mb-3">
             <textarea
-              className="form-control"
+              className="form-control text-area-traduc"
               rows="5"
               name=""
               id=""
+              readOnly
               value={textJeringozo}
               onChange={(e) => setTextJeringozo(e.target.value)}
             ></textarea>
