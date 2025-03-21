@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import NavBarApp from "./components/NavBarApp";
 import { decodificarJeringozo, codificarJeringozo } from "./helpers/traducir";
+import { copiarPotapapeles } from "./helpers/portapapeles";
 import "./css/traductor.css";
 
 function App() {
@@ -74,7 +75,7 @@ function App() {
               </small>
             </div>
           </div>
-          <div className="col-12 col-md-6 mb-3">
+          <div className="col-12 col-md-6 mb-3 position-relative">
             <textarea
               className="form-control text-area-traduc"
               rows="5"
@@ -84,14 +85,17 @@ function App() {
               value={textJeringozo}
               onChange={(e) => setTextJeringozo(e.target.value)}
             ></textarea>
+            <div className="overlay">
+              <i
+                onClick={() => copiarPotapapeles(textJeringozo)}
+                className="fa fa-clipboard"
+                aria-hidden="true"
+              ></i>
+            </div>
           </div>
         </div>
         <div className="row">
-          <div className="col">
-            {/* <button className="btn btn-warning" onClick={traducirAJeringozo}>
-              click me
-            </button> */}
-          </div>
+          <div className="col"></div>
         </div>
       </div>
     </>
