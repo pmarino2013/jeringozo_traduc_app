@@ -1,7 +1,7 @@
 const NavBarApp = () => {
   return (
     <>
-      <div className="d-flex justify-content-between align-items-center  bg-light">
+      <div className="d-flex justify-content-around align-items-center  bg-light">
         <button
           className="btn btn-transparent text-dark"
           type="button"
@@ -11,7 +11,7 @@ const NavBarApp = () => {
         >
           <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
         </button>
-        <span className="p-2 fs-3">Traductor de Jeringozo</span>
+        <span className="p-2 fs-3 fw-bold">Traductor de Jeringozo</span>
       </div>
 
       <div
@@ -31,14 +31,15 @@ const NavBarApp = () => {
           ></button>
         </div>
         <div className="offcanvas-body">
-          <div>
-            Some text as placeholder. In real life you can have the elements you
-            have chosen. Like, text, images, lists, etc.
+          <div className="mb-3">
+            El <b>jeringoso</b> es un juego de palabras popular en países de
+            habla hispana, donde se modifica una palabra o frase añadiendo
+            sílabas adicionales a cada vocal.
           </div>
           <ul>
             <li>
               <a href="#" className="text-decoration-none">
-                Inicio
+                Tutorial
               </a>
             </li>
             <li>

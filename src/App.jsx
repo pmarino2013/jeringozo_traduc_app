@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import NavBarApp from "./components/NavBarApp";
-import { decodificarJeringozo, codificarJeringozo } from "./helpers/traducir";
-import { copiarPotapapeles } from "./helpers/portapapeles";
 import "./css/traductor.css";
+import BarraCambioIdioma from "./components/BarraCambioIdioma";
+import PanelTraductorApp from "./components/PanelTraductorApp";
+import {
+  codificarJeringozo,
+  copiarPotapapeles,
+  decodificarJeringozo,
+} from "./helpers";
 
 function App() {
   let initialCount = 5000;
@@ -16,12 +21,6 @@ function App() {
     idiomaJeringozo
       ? setTextJeringozo(codificarJeringozo(textEspañol))
       : setTextJeringozo(decodificarJeringozo(textEspañol));
-
-    // if (idiomaJeringozo) {
-    //   setTextJeringozo(codificarJeringozo(textEspañol));
-    // } else {
-    //   setTextJeringozo(decodificarJeringozo(textEspañol));
-    // }
   }, [textEspañol]);
 
   useEffect(() => {
@@ -35,6 +34,10 @@ function App() {
     setTextEspañol(target.value);
   };
 
+  const jeringozoTraduction = ({ target }) => {
+    setTextJeringozo(target.value);
+  };
+
   const cambioIdioma = () => {
     setIdiomaJeringozo(!idiomaJeringozo);
   };
@@ -43,57 +46,19 @@ function App() {
     <>
       <NavBarApp />
       <div className="container">
-        <div className="row py-5">
-          <div className="col fs-3 d-flex justify-content-around align-items-center">
-            <span>{idiomaJeringozo ? "Español" : "Jeringozo"}</span>
-          </div>
-          <div className="col fs-3 d-flex justify-content-around align-items-center">
-            <i
-              onClick={cambioIdioma}
-              className="fa fa-exchange"
-              aria-hidden="true"
-            ></i>
-          </div>
-          <div className="col fs-3 d-flex justify-content-around align-items-center">
-            <span>{idiomaJeringozo ? "Jeringozo" : "Español"}</span>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-12 col-md-6 mb-3">
-            <textarea
-              className="form-control"
-              rows="5"
-              maxLength={5000}
-              value={textEspañol}
-              onChange={timeTraduction}
+        <BarraCambioIdioma
+          idiomaJeringozo={idiomaJeringozo}
+          cambioIdioma={cambioIdioma}
+        />
+        <PanelTraductorApp
+          textEspañol={textEspañol}
+          timeTraduction={timeTraduction}
+          count={count}
+          textJeringozo={textJeringozo}
+          copiarPotapapeles={copiarPotapapeles}
+          jeringozoTraduction={jeringozoTraduction}
+        />
 
-              // onKeyUp={timeTraduction}
-            ></textarea>
-            <div className="d-flex justify-content-end pe-2">
-              <small className={count <= 10 ? " text-danger" : "text-muted"}>
-                {count}
-              </small>
-            </div>
-          </div>
-          <div className="col-12 col-md-6 mb-3 position-relative">
-            <textarea
-              className="form-control text-area-traduc"
-              rows="5"
-              name=""
-              id=""
-              readOnly
-              value={textJeringozo}
-              onChange={(e) => setTextJeringozo(e.target.value)}
-            ></textarea>
-            <div className="overlay">
-              <i
-                onClick={() => copiarPotapapeles(textJeringozo)}
-                className="fa fa-clipboard"
-                aria-hidden="true"
-              ></i>
-            </div>
-          </div>
-        </div>
         <div className="row">
           <div className="col"></div>
         </div>
