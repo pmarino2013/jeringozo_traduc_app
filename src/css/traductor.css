@@ -12,3 +12,13 @@
     cursor: pointer;
   }
 }
+
+textarea {
+  resize: none;
+}
+
+@media (min-width: 478px) {
+  .overlay {
+    inset: 30px;
+  }
+}
