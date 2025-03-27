@@ -3,11 +3,7 @@ import NavBarApp from "./components/NavBarApp";
 import "./css/traductor.css";
 import BarraCambioIdioma from "./components/BarraCambioIdioma";
 import PanelTraductorApp from "./components/PanelTraductorApp";
-import {
-  codificarJeringozo,
-  copiarPotapapeles,
-  decodificarJeringozo,
-} from "./helpers";
+import { codificarJeringozo, decodificarJeringozo } from "./helpers";
 
 function App() {
   let initialCount = 5000;
@@ -55,7 +51,6 @@ function App() {
           timeTraduction={timeTraduction}
           count={count}
           textJeringozo={textJeringozo}
-          copiarPotapapeles={copiarPotapapeles}
           jeringozoTraduction={jeringozoTraduction}
         />
 
