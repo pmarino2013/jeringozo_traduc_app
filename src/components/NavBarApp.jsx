@@ -1,4 +1,5 @@
 import ModalAboutApp from "./ModalAboutApp";
+import ModalContactApp from "./ModalContactApp";
 
 const NavBarApp = () => {
   return (
@@ -56,7 +57,13 @@ const NavBarApp = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="text-decoration-none">
+              <a
+                href="#"
+                className="text-decoration-none"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#contactModal"
+              >
                 Contacto
               </a>
             </li>
@@ -64,6 +71,7 @@ const NavBarApp = () => {
         </div>
       </div>
       <ModalAboutApp />
+      <ModalContactApp />
     </>
   );
 };

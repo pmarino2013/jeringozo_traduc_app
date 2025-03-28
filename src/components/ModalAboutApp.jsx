@@ -1,11 +1,11 @@
 import React from "react";
+import { version } from "../../package.json";
 
 const ModalAboutApp = () => {
   return (
     <div
       className="modal fade"
       id="exampleModal"
-      tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
@@ -21,7 +21,7 @@ const ModalAboutApp = () => {
             ></button>
           </div>
           <div className="modal-body">
-            <p>Traductor de Jeringozo App version 1.0.1</p>
+            <p>Traductor de Jeringozo App version {version}</p>
             <p>Licensed under GNU AGPL v3</p>
 
             <p>© Traductor de Jeringozo 2025</p>
