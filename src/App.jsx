@@ -4,6 +4,7 @@ import "./css/traductor.css";
 import BarraCambioIdioma from "./components/BarraCambioIdioma";
 import PanelTraductorApp from "./components/PanelTraductorApp";
 import { codificarJeringozo, decodificarJeringozo } from "./helpers";
+import FooterApp from "./components/FooterApp";
 
 function App() {
   let initialCount = 5000;
@@ -39,7 +40,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="vh-100 d-flex flex-column justify-content-between">
       <NavBarApp />
       <div className="container">
         <BarraCambioIdioma
@@ -58,7 +59,8 @@ function App() {
           <div className="col"></div>
         </div>
       </div>
-    </>
+      <FooterApp />
+    </div>
   );
 }
 
