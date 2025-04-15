@@ -1,6 +1,3 @@
-import React from "react";
-import { version } from "../../package.json";
-
 const ModalContactApp = () => {
   return (
     <div
@@ -45,7 +42,11 @@ const ModalContactApp = () => {
                 </a>
               </div>
               <div className="d-flex align-items-center gap-2">
-                <a className="nav-link fs-4" href="https://x.com/pablomarino8">
+                <a
+                  className="nav-link fs-4"
+                  href="https://x.com/pablomarino8"
+                  target="_blank"
+                >
                   <i
                     className="fa fa-twitter-square fa-2x"
                     aria-hidden="true"

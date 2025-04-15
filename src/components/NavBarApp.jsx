@@ -1,7 +1,13 @@
+import { useState } from "react";
 import ModalAboutApp from "./ModalAboutApp";
 import ModalContactApp from "./ModalContactApp";
+import ModalTutorialApp from "./ModalTutorialApp";
 
 const NavBarApp = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
       <div className="d-flex justify-content-around align-items-center  bg-light">
@@ -41,7 +47,7 @@ const NavBarApp = () => {
           </div>
           <ul>
             <li>
-              <a href="#" className="text-decoration-none">
+              <a href="#" className="text-decoration-none" onClick={handleShow}>
                 Tutorial
               </a>
             </li>
@@ -72,6 +78,7 @@ const NavBarApp = () => {
       </div>
       <ModalAboutApp />
       <ModalContactApp />
+      <ModalTutorialApp show={show} handleClose={handleClose} />
     </>
   );
 };
