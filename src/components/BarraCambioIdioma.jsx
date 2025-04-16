@@ -4,7 +4,7 @@ const BarraCambioIdioma = ({ idiomaJeringozo, cambioIdioma }) => {
   return (
     <div className="row py-5">
       <div className="col-5 fs-3 d-flex justify-content-center align-items-center">
-        <span>{idiomaJeringozo ? "Español" : "Jeringozo"}</span>
+        <span>{idiomaJeringozo ? "Español" : "Jeringoso"}</span>
       </div>
       <div className="col-2 fs-3 d-flex justify-content-center align-items-center">
         <i
@@ -15,7 +15,7 @@ const BarraCambioIdioma = ({ idiomaJeringozo, cambioIdioma }) => {
         ></i>
       </div>
       <div className="col-5 fs-3 d-flex justify-content-center align-items-center">
-        <span>{idiomaJeringozo ? "Jeringozo" : "Español"}</span>
+        <span>{idiomaJeringozo ? "Jeringoso" : "Español"}</span>
       </div>
     </div>
   );

@@ -2,6 +2,8 @@ import { useState } from "react";
 import ModalAboutApp from "./ModalAboutApp";
 import ModalContactApp from "./ModalContactApp";
 import ModalTutorialApp from "./ModalTutorialApp";
+import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.png";
 
 const NavBarApp = () => {
   const [show, setShow] = useState(false);
@@ -20,7 +22,9 @@ const NavBarApp = () => {
         >
           <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
         </button>
-        <span className="p-2 fs-3 fw-bold">Traductor de Jeringozo</span>
+        <span className="p-2 fs-3 fw-bold">
+          <img src={logo2} alt="logo" width={150} />
+        </span>
       </div>
 
       <div
@@ -29,9 +33,10 @@ const NavBarApp = () => {
         aria-labelledby="offcanvasExampleLabel"
       >
         <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-            Traductor de Jeringozo
-          </h5>
+          {/* <h5 className="offcanvas-title" id="offcanvasExampleLabel">
+            JerinGOzo
+          </h5> */}
+          <img src={logo} alt="logo" />
           <button
             type="button"
             className="btn-close"
